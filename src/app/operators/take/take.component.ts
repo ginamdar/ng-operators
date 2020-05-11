@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {fromEvent} from 'rxjs';
-import {take, takeWhile} from 'rxjs/operators';
+import {fromEvent, of} from 'rxjs';
+import {take, takeLast, takeWhile} from 'rxjs/operators';
 
 @Component({
   selector: 'app-take',
@@ -10,6 +10,13 @@ export class TakeComponent implements OnInit {
   ngOnInit() {
     let counter = 1;
     const clicked$ = fromEvent(document, 'click');
+    const last$ = of(1, 2, 3, 4, 5);
+    last$
+      .pipe(
+        takeLast(2)
+      )
+      .subscribe((value) => console.log('Last Values', value));
+    
     clicked$
       .pipe(
         takeWhile(() => counter < 4),
