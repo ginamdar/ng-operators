@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {fromEvent} from 'rxjs';
-import {take} from 'rxjs/operators';
+import {take, takeWhile} from 'rxjs/operators';
 
 @Component({
   selector: 'app-take',
@@ -12,7 +12,7 @@ export class TakeComponent implements OnInit {
     const clicked$ = fromEvent(document, 'click');
     clicked$
       .pipe(
-        take(3),
+        takeWhile(() => counter < 4),
       )
       .subscribe(() => {
         console.log('document clicked! ', counter++);
