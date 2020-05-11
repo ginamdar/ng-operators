@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {WikiSearchService} from '../services/wiki-search.service';
 import {Observable} from 'rxjs';
-import {debounceTime, switchMap} from 'rxjs/operators';
+import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-debounce-time',
@@ -22,6 +22,7 @@ export class DebounceTimeComponent implements OnInit {
     return term$
       .pipe(
         debounceTime(400),
+        distinctUntilChanged(),
         switchMap(searchTerm => {
           if (!searchTerm) {
             return [];
