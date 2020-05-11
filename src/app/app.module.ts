@@ -9,13 +9,15 @@ import {DebounceTimeComponent} from './operators/debounce-time.component';
 import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {WikiSearchService} from './services/wiki-search.service';
+import {TakeComponent} from './operators/take/take.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ShareOpComponent,
     SwitchMapComponent,
-    DebounceTimeComponent
+    DebounceTimeComponent,
+    TakeComponent
   ],
   imports: [
     BrowserModule,
