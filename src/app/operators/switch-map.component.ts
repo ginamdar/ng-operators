@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Post} from '../model/Post';
-import {share, switchMap, tap} from 'rxjs/operators';
+import {delay, share, switchMap, tap} from 'rxjs/operators';
 import {Comments} from '../model/Comments';
+import {forkJoin} from 'rxjs';
 
 @Component({
   selector: 'app-switch-map',
@@ -28,19 +29,18 @@ export class SwitchMapComponent implements OnInit{
             );
         }),
       );
-
     combined$.subscribe();
   }
 
   getPosts() {
-    return this.http.get<Post[]>('http://jsonplaceholder.typicode.com/posts')
+    return this.http.get<Post[]>('https://jsonplaceholder.typicode.com/posts')
       .pipe(
         share()
       );
   }
 
   getComments() {
-    return this.http.get<Comments[]>('http://jsonplaceholder.typicode.com/comments')
+    return this.http.get<Comments[]>('https://jsonplaceholder.typicode.com/comments')
       .pipe(
         share()
       );
