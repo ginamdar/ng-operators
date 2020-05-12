@@ -10,6 +10,7 @@ import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {WikiSearchService} from './services/wiki-search.service';
 import {TakeComponent} from './operators/take/take.component';
+import {FlatmapComponent} from './operators/flatMap-switchMap/flatmap.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {TakeComponent} from './operators/take/take.component';
     ShareOpComponent,
     SwitchMapComponent,
     DebounceTimeComponent,
-    TakeComponent
+    TakeComponent,
+    FlatmapComponent
   ],
   imports: [
     BrowserModule,
