@@ -15,10 +15,9 @@ export class DebounceTimeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.search = this.search.bind(this);
   }
 
-  search(term$: Observable<string>): Observable<string[]> {
+  search = (term$: Observable<string>): Observable<string[]> => {
     return term$
       .pipe(
         debounceTime(400),
