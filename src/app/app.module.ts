@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {WikiSearchService} from './services/wiki-search.service';
 import {TakeComponent} from './operators/take/take.component';
 import {FlatmapComponent} from './operators/flatMap-switchMap/flatmap.component';
+import {PairwiseComponent} from './operators/pairwise/pairwise.component';
+import { MergeMapToComponent } from './operators/merge-map-to/merge-map-to.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {FlatmapComponent} from './operators/flatMap-switchMap/flatmap.component'
     SwitchMapComponent,
     DebounceTimeComponent,
     TakeComponent,
-    FlatmapComponent
+    FlatmapComponent,
+    PairwiseComponent,
+    MergeMapToComponent
   ],
   imports: [
     BrowserModule,
