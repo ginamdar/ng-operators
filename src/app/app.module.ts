@@ -10,7 +10,7 @@ import {FormsModule} from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {WikiSearchService} from './services/wiki-search.service';
 import {TakeComponent} from './operators/take/take.component';
-import {FlatmapComponent} from './operators/flatMap-switchMap/flatmap.component';
+import {FlatmapComponent} from './operators/flatMap-mergeMap/flatmap.component';
 import {PairwiseComponent} from './operators/pairwise/pairwise.component';
 import { MergeMapToComponent } from './operators/merge-map-to/merge-map-to.component';
 
