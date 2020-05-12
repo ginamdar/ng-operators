@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable, of} from 'rxjs';
+import {concat, Observable, of} from 'rxjs';
 import {map, mergeMap} from 'rxjs/operators';
 
 interface Color {
@@ -23,6 +23,9 @@ export class FlatmapComponent implements OnInit {
   ngOnInit() {
     const carColor$: Observable<Color> = this.getColor();
     const carDriver$: Observable<Driver> = this.getDriver();
+
+    const combined$ = concat(carDriver$, carColor$);
+    combined$.subscribe(console.log);
 
     const car$: Observable<Car> = carColor$
       .pipe(
